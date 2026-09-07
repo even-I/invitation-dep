@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation - Don de Sang AMEET</title>
+    <style>
+        :root {
+            --primary-color: #001286;
+            --secondary-color: #00ffff;
+            --dark-color: #0b132b;
+            --light-color: #f8f9fa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 18, 134, 0.15);
+            overflow: hidden;
+            border-top: 6px solid var(--primary-color);
+        }
+
+        .header {
+            background: var(--primary-color);
+            color: #ffffff;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+
+        .header p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 5px rgba(0, 255, 255, 0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.1s;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #000e66;
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+            margin-top: 15px;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1ebe5d;
+        }
+
+        /* Invitation Letter Styles */
+        .letter-box {
+            background: #fdfdfd;
+            border: 1px solid #d1d8e0;
+            border-left: 4px solid var(--secondary-color);
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .letter-box h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .signature {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        /* Radio Options */
+        .presence-options {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .presence-options label {
+            font-weight: normal;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>AMEET</h1>
+        <p>Journée de Don de Sang - 25 Septembre 2026</p>
+    </div>
+
+    <div class="content">
+        <div id="page1" class="page active">
+            <p style="margin-bottom: 20px; font-size: 0.95rem;">
+                <strong>Monsieur le Président,</strong><br>
+                Nous avons l’honneur de vous souhaiter la bienvenue sur la plateforme officielle de réception des invitations relatives à la journée de don de sang organisée par l’Amicale des Élèves et Étudiants de Tanaff (AMEET).
+            </p>
+
+            <form id="inviteForm">
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" required placeholder="Entrez votre prénom">
+                </div>
+
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" required placeholder="Entrez votre nom">
+                </div>
+
+                <div class="form-group">
+                    <label for="amicale">Amicale</label>
+                    <select id="amicale" required>
+                        <option value="" disabled selected>-- Sélectionnez votre amicale --</option>
+                        <option value="FACDEG">FACDEG</option>
+                        <option value="NIAGHA">NIAGHA</option>
+                        <option value="GOUDOMP">GOUDOMP</option>
+                        <option value="KOLIBANTANG">KOLIBANTANG</option>
+                        <option value="DJIBANAR">DJIBANAR</option>
+                        <option value="YARANG">YARANG</option>
+                        <option value="MANGAROUNGOU">MANGAROUNGOU</option>
+                        <option value="DIATTACOUNDA">DIATTACOUNDA</option>
+                        <option value="BAGHERE">BAGHERE</option>
+                        <option value="DIOUDOUBOU">DIOUDOUBOU</option>
+                        <option value="SIMBANDI BRASSOU">SIMBANDI BRASSOU</option>
+                        <option value="KARANTABA">KARANTABA</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn">Valider</button>
+            </form>
+        </div>
+
+        <div id="page2" class="page">
+            <div class="letter-box">
+                <h2>INVITATION</h2>
+                <p><strong>Monsieur le Président de l'amicale <span id="displayAmicale"></span>,</strong></p><br>
+                <p>L’Amicale des Élèves et Étudiants de Tanaff (AMEET) a l’honneur de vous inviter à prendre part à sa journée de sensibilisation et de don de sang, prévue à Tanaff à la fin du mois de septembre 2026 (le 25 septembre au Poste de santé de Tanaff).</p><br>
+                <p>Votre présence à cette initiative citoyenne et solidaire nous ferait un grand honneur. Nous vous prions de bien vouloir confirmer votre participation via cette plateforme.</p>
+                
+                <div class="signature">
+                    Le Président de l’AMEET<br>
+                    <strong>Yankhouba DABO</strong>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Vous y serez ?</label>
+                <div class="presence-options">
+                    <label><input type="radio" name="presence" value="Oui" checked> Oui</label>
+                    <label><input type="radio" name="presence" value="Non"> Non</label>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-whatsapp" onclick="envoyerWhatsApp()">Envoyer la réponse sur WhatsApp</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Variables globales pour stocker les données du formulaire
+    let utilisateurData = {
+        prenom: '',
+        nom: '',
+        amicale: ''
+    };
+
+    const inviteForm = document.getElementById('inviteForm');
+    const page1 = document.getElementById('page1');
+    const page2 = document.getElementById('page2');
+    const displayAmicale = document.getElementById('displayAmicale');
+
+    // Gestion de la soumission de la première page
+    inviteForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        utilisateurData.prenom = document.getElementById('prenom').value.trim();
+        utilisateurData.nom = document.getElementById('nom').value.trim();
+        utilisateurData.amicale = document.getElementById('amicale').value;
+
+        // Mettre à jour l'affichage de l'amicale dans la lettre
+        displayAmicale.textContent = utilisateurData.amicale;
+
+        // Basculer vers la page 2
+        page1.classList.remove('active');
+        page2.classList.add('active');
+    });
+
+    // Fonction d'envoi formatée sur WhatsApp
+    function envoyerWhatsApp() {
+        // Récupérer le choix de présence (Oui / Non)
+        const presenceChoix = document.querySelector('input[name="presence"]:checked').value;
+        
+        // Numéro de téléphone cible (sans le + ou avec l'indicatif international standard sans le +)
+        const numeroWhatsApp = "221783255730";
+
+        // Construction du message exact demandé
+        let message = `RÉPONSE À L’INVITATION\n\n`;
+        message += `Monsieur le Président de l’AMEET,\n\n`;
+        message += `J’accuse réception de votre invitation relative à la journée de sensibilisation et de don de sang organisée par l’AMEET.\n\n`;
+        
+        if (presenceChoix === "Oui") {
+            message += `J’y serai.\n\n`;
+        } else {
+            message += `Non, je n'y serai pas.\n\n`;
+        }
+
+        message += `Nom et prénom : ${utilisateurData.prenom} ${utilisateurData.nom}\n`;
+        message += `Fonction : Président de l'amicale ${utilisateurData.amicale}`;
+
+        // Encodage du message pour l'URL WhatsApp
+        const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(message)}`;
+
+        // Redirection vers l'application WhatsApp
+        window.open(urlWhatsApp, '_blank');
+    }
+</script>
+
+</body>
+</html>
